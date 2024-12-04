@@ -10,15 +10,18 @@
 </template>
 
 <script>
+import data from '@/assets/data.json'
+
 export default {
   name: 'HomePage',
   data () {
     return {
-      works: [
-        { id: 1, title: 'デザイン作品A' },
-        { id: 2, title: '動画作品B' },
-        { id: 3, title: 'デザイン作品C' }
-      ] // 最後の要素にカンマをつけない
+      works: data
+      // works: [
+      //   { id: 1, title: 'デザイン作品A' },
+      //   { id: 2, title: '動画作品B' },
+      //   { id: 3, title: 'デザイン作品C' }
+      // ] // 最後の要素にカンマをつけない
     }
   }
 }
