@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router' // 修正した router をインポート
 import { createPinia } from 'pinia'
+import './assets/styles/tailwind.css'
 
 // アプリケーションを作成してルーターを追加
 const app = createApp(App)
