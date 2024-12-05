@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <button @click="googleLogin" class="google-login-btn">Googleでログイン</button>
+  <div class="container mx-auto mt-10 py-20 px-6 bg-white shadow-md rounded-lg border border-gray-200">
+    <h1 class="text-xl font-bold text-center">ログインをしてください</h1>
+    <h2 class="text-md mb-8 text-center">特定の組織アカウントのみ<br>ログインできます</h2>
+    <button @click="googleLogin" class="google-login-btn block mx-auto bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+      Googleでログイン
+    </button>
   </div>
 </template>
 
@@ -43,5 +47,9 @@ export default {
 
 .google-login-btn:hover {
   background-color: #357ae8;
+}
+
+.container {
+  max-width: 300px; /* 最大幅 */
 }
 </style>

@@ -1,5 +1,6 @@
 // store.js
 import { createStore } from 'vuex'
+import router from '@/router'
 
 export const store = createStore({
   state: {
@@ -42,6 +43,7 @@ export const store = createStore({
     },
     logout ({ commit }) {
       commit('clearAuth')
+      router.push({ name: 'Login' })
     }
   }
 })

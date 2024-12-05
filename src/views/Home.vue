@@ -1,7 +1,10 @@
 <template>
   <div class="p-6 bg-gray-100 min-h-screen">
+    <!-- ヘッダー -->
     <header class="flex justify-between items-center mb-6">
-      <h1 class="text-3xl font-bold">制作物一覧</h1>
+      <div class="flex-row">
+      <h1 class="text-3xl font-bold text-left">制作物チェックシステム</h1>
+      <h1 class="text-xl text-left">おつかれさま、{{ userName }}！</h1></div>
       <div v-if="isAuthenticated" class="flex items-center space-x-3">
         <img
           :src="userIcon"
@@ -17,6 +20,7 @@
         </button>
       </div>
     </header>
+    <!-- 制作物一覧 -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
         v-for="(work, index) in works" :key="index"
