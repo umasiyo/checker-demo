@@ -38,7 +38,7 @@ export default {
           // ここでユーザーのメールアドレスがサークルのドメインかを確認し、リダイレクトを行います
           if (this.userInfo.email.endsWith('@wasedasai.net')) {
             console.log('サークルのアカウントです')
-            this.$store.dispatch('login', { email: this.userInfo.email }) // Vuex に保存
+            this.$store.dispatch('login', { email: data.email, name: data.name, picture: data.picture }) // Vuex に保存
             nextTick(() => {
               this.$router.push({ name: 'Home' }).catch(err => {
                 console.error('ルーティングエラー:', err)

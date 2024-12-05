@@ -1,17 +1,30 @@
 <template>
   <div class="p-6 bg-gray-100 min-h-screen">
-    <h1 class="text-3xl font-bold mb-6">制作物一覧</h1>
+    <header class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold">制作物一覧</h1>
+      <div v-if="isAuthenticated" class="flex items-center space-x-3">
+        <img
+          :src="userIcon"
+          alt="User Icon"
+          class="w-10 h-10 rounded-full border border-gray-300"
+        />
+        <span class="text-gray-800 font-medium pr-0">{{ userName }}</span>
+        <button
+          @click="logout"
+          class="border border-red-500 text-red-500 py-1.5 px-4 rounded-lg hover:bg-red-500 hover:text-white transition"
+        >
+          ログアウト
+        </button>
+      </div>
+    </header>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
         v-for="(work, index) in works" :key="index"
         class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200"
       >
-        <!-- サムネイル -->
         <div class="h-48 bg-gray-300 flex items-center justify-center">
-        <!-- <div class="relative pb-9/16"> -->
           <img :src="work.thumbnail" alt="Thumbnail" class="h-full w-full object-cover" />
         </div>
-        <!-- コンテンツ部分 -->
         <div class="p-4">
           <h2 class="text-xl font-semibold mb-2">{{ work.title }}</h2>
           <p class="text-gray-600 text-sm mb-4">{{ work.description }}</p>
@@ -28,6 +41,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import data from '@/assets/data.json'
 
 export default {
@@ -35,21 +49,16 @@ export default {
   data () {
     return {
       works: data
-      // works: [
-      //   { id: 1, title: 'デザイン作品A' },
-      //   { id: 2, title: '動画作品B' },
-      //   { id: 3, title: 'デザイン作品C' }
-      // ] // 最後の要素にカンマをつけない
     }
   },
+  computed: {
+    ...mapState(['isAuthenticated', 'userName', 'userIcon'])
+  },
   methods: {
+    ...mapActions(['logout']),
     checkItem (id) {
       alert(`アイテムID: ${id} をチェックしました！`)
     }
   }
 }
 </script>
-
-<style>
-
-</style>
