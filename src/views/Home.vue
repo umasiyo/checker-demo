@@ -1,14 +1,3 @@
-<!-- <template>
-  <div class="home">
-    <h1>作品一覧</h1>
-    <ul>
-      <li v-for="(work, index) in works" :key="index">
-        <router-link :to="`/work/${work.id}`">{{ work.title }}</router-link>
-      </li>
-    </ul>
-  </div>
-</template> -->
-
 <template>
   <div class="p-6 bg-gray-100 min-h-screen">
     <h1 class="text-3xl font-bold mb-6">制作物一覧</h1>
