@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/Home.vue'
 import LoginPage from '@/views/Login.vue'
+import UploadPage from '@/views/Upload.vue'
 import { store } from '@/store/store'
 
 // ルートの定義
@@ -20,6 +21,11 @@ const routes = [
     path: '/callback',
     name: 'callback',
     component: () => import('@/views/Callback.vue') // 認証後にリダイレクトされる画面
+  },
+  {
+    path: '/upload',
+    name: 'Upload',
+    component: UploadPage
   }
 ]
 

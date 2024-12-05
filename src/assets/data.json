@@ -1,10 +1,10 @@
 [
-    { "id": 1, "title": "デザインA", "description": "このデザインは…", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 2, "title": "動画B", "description": "おでん×電子媒体の企画広報", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 3, "title": "動画C", "description": "ナスときゅうりを完全に分離した動画", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 4, "title": "動画D", "description": "文字情報を完全に無視してしまいました", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 5, "title": "デザインB", "description": "あんまり深くは追求しないでください", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 6, "title": "デザインC", "description": "一切の守秘義務を守らない男の一日", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 7, "title": "デザインD", "description": "非公式直前PV", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" },
-    { "id": 8, "title": "デザインE", "description": "締め切り1週間後につき急ぎです！！", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg" }
+    { "id": 1, "title": "デザインA", "description": "文字数6000文字", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-10-03 23:59:00", "category": "デザイン", "status": "チェック済み", "submitter": "蔭島獅子" },
+    { "id": 2, "title": "動画B", "description": "おでん×電子媒体の企画広報", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-10-10 23:59:00", "category": "映像", "status": "チェック中", "submitter": "蔭島獅子" },
+    { "id": 3, "title": "動画C", "description": "ナスときゅうりを完全に分離した動画", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-10-29 23:59:00", "category": "映像", "status": "チェック未提出", "submitter": "蔭島獅子" },
+    { "id": 4, "title": "動画D", "description": "文字情報を完全に無視してしまいました", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-11-13 23:59:00", "category": "映像", "status": "チェック済み", "submitter": "蔭島獅子" },
+    { "id": 5, "title": "デザインB", "description": "あんまり深くは追求しないでください", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-9-26 23:59:00", "category": "デザイン", "status": "チェック待ち", "submitter": "蔭島獅子" },
+    { "id": 6, "title": "デザインC", "description": "一切の守秘義務を守らない男の一日", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-10-30 23:59:00", "category": "デザイン", "status": "チェック中", "submitter": "蔭島獅子" },
+    { "id": 7, "title": "デザインD", "description": "非公式直前PV", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-12-01 23:59:00", "category": "デザイン", "status": "チェック済み", "submitter": "蔭島獅子"},
+    { "id": 8, "title": "デザインE", "description": "締め切り1週間後につき急ぎです！！", "thumbnail": "https://cdn.p-nest.co.jp/c/nekochan.jp/pro/resize/700x500/100/8/3cc94d32dcaf5c311d1fdd1ceac138e2.jpg", "deadline": "2024-8-17 23:59:00", "category": "デザイン", "status": "チェック中", "submitter": "蔭島獅子" }
   ]  
