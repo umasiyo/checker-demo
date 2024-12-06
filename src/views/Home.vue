@@ -11,7 +11,10 @@
           alt="User Icon"
           class="w-10 h-10 rounded-full border border-gray-300"
         />
-        <span class="text-gray-800 font-medium pr-0">{{ userName }}</span>
+        <div class="flex-row">
+          <span class="text-left text-gray-800 font-medium pr-0">{{ userName }}</span>
+          <p class="text-left text-xs text-gray-800 font-medium pr-0">広報制作局 映像チーム</p>
+        </div>
         <button
           @click="logout"
           class="border border-red-500 text-red-500 py-1.5 px-4 rounded-lg hover:bg-red-500 hover:text-white transition"
@@ -68,7 +71,7 @@
         </div>
     </div>
     <!-- 制作物一覧 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div v-if="isGridView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
         v-for="(work, index) in filteredWorks" :key="index"
         class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200"
@@ -80,7 +83,14 @@
       </div>
       <!-- サムネイル -->
       <div class="h-48 bg-gray-300 flex items-center justify-center">
-          <img :src="work.thumbnail" alt="Thumbnail" class="h-full w-full object-cover" />
+          <!-- <img :src="work.thumbnail" alt="Thumbnail" class="h-full w-full object-cover" /> -->
+          <img
+            v-if="thumbnailUrl(work.content_url)"
+            :src="thumbnailUrl(work.content_url)"
+            alt="Google Drive Thumbnail"
+            class="h-48 w-full object-cover"
+          />
+          <p v-else>サムネイルを取得できませんでした。</p>
         </div>
         <div class="p-4">
           <p :class="getCategoryClass(work.category)" class="inline-block px-2 py-0.5 mx-auto my-1 text-xs border bg-gray-300 text-white rounded-full">{{ work.category }}</p>
@@ -95,7 +105,49 @@
         </div>
       </div>
     </div>
+    <div v-else class="space-y-2">
+    <!-- リストビュー -->
+    <div
+      v-for="(work, index) in filteredWorks" :key="index"
+      class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 flex items-center p-3"
+    >
+      <div class="h-10 w-10 bg-gray-300 flex-shrink-0 flex items-center justify-center mr-4">
+        <img :src="work.thumbnail" alt="Thumbnail" class="h-full w-full object-cover" />
+      </div>
+      <!-- 左揃えの情報欄 -->
+      <div class="flex space-x-4 whitespace-nowrap mr-4">
+        <div :class="getStatusClass(work.status)" class="h-6 w-24 mb-1 text-white text-center rounded-lg px-2 py-0.5">
+          {{ work.status }}
+        </div>
+        <h2 class="text-lg font-semibold truncate max-w-60">{{ work.title }}</h2>
+        <p class="text-lg text-gray-600 truncate">{{ work.submitter }}</p>
+        <p class="text-lg text-gray-500">{{ formatDeadline(work.deadline) }}</p>
+        <p :class="getCategoryClass(work.category)" class="px-2 py-0.5 border bg-gray-300 text-white rounded-full">{{ work.category }}</p>
+      </div>
+      <!-- 右揃えの情報欄 -->
+      <div class="ml-auto flex flex-row whitespace-nowrap">
+        <button
+        @click="openLink(work.docs_url)"
+          class="border border-gray-700 text-gray-700 py-1 mr-2 px-3 rounded-lg hover:bg-gray-800 hover:text-white transition"
+        >
+          制作届
+        </button>
+        <button
+          @click="openLink(work.text_url)"
+          class="border border-gray-700 text-gray-700 py-1 mr-2 px-3 rounded-lg hover:bg-gray-800 hover:text-white transition"
+        >
+          文字情報
+        </button>
+        <button
+          @click="checkItem(work.id)"
+          class="bg-gray-700 text-white py-1 px-3 rounded-lg hover:bg-gray-800 transition"
+        >
+          チェック
+        </button>
+      </div>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -108,7 +160,8 @@ export default {
     return {
       works: data,
       selectedCategory: '', // フィルタリング最初は空
-      selectedSort: '' // ソート条件も最初は空
+      selectedSort: '', // ソート条件も最初は空
+      isGridView: false
     }
   },
   computed: {
@@ -186,6 +239,31 @@ export default {
     },
     goToUpload () {
       this.$router.push({ name: 'Upload' }) // 名前でルート指定
+    },
+    switchView () {
+      this.isGridView = !this.isGridView
+    },
+    openLink(url) {
+    if (url) {
+      // window.location.href = url
+      window.open(url, '_blank')
+    } else {
+      alert('リンクが設定されていません。')
+    }
+    },
+    getGoogleDriveFileId(url) {
+    const match = url.match(/\/d\/([^/]+)/);
+    return match ? match[1] : null;
+    },
+    getGoogleDriveThumbnailUrl(fileId) {
+    return `https://drive.google.com/thumbnail?id=${fileId}`;
+    },
+    thumbnailUrl(url) {
+      const fileId = this.getGoogleDriveFileId(url);
+      if (fileId) {
+        return this.getGoogleDriveThumbnailUrl(fileId);
+      }
+      return null;
     }
   }
 }

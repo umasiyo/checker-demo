@@ -25,6 +25,14 @@
         </button>
       </div>
     </header>
+    <div class="flex flex-row-reverse">
+      <button
+              @click="goToHome"
+              class="text-right h-10 border bg-gray-700 text-white py-1.5 px-4 rounded-lg hover:bg-gray-800 transition"
+            >
+              ホームに戻る
+            </button>
+    </div>
     <!-- フォーム -->
     <form @submit.prevent="handleSubmit" class="mx-auto space-y-6 w-1/2">
       <div class="mb-4">
@@ -211,6 +219,9 @@ export default {
         text_url: '',
         docs_url: ''
       }
+    },
+    goToHome () {
+      this.$router.push({ name: 'Home' }) // 名前でルート指定
     }
   }
 }
