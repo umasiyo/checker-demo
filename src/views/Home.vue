@@ -97,7 +97,7 @@
           <h2 class="text-xl font-semibold mb-2">{{ work.title }}</h2>
           <p class="text-gray-600 text-sm mb-4">{{ work.submitter }}</p>
           <button
-            @click="checkItem(work.id)"
+            @click="$router.push({ name: 'Work', params: { id: work.id } })"
             class="w-full bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition"
           >
             チェック
@@ -139,7 +139,7 @@
           文字情報
         </button>
         <button
-          @click="checkItem(work.id)"
+          @click="$router.push({ name: 'Work', params: { id: work.id } })"
           class="bg-gray-700 text-white py-1 px-3 rounded-lg hover:bg-gray-800 transition"
         >
           チェック
@@ -161,7 +161,7 @@ export default {
       works: data,
       selectedCategory: '', // フィルタリング最初は空
       selectedSort: '', // ソート条件も最初は空
-      isGridView: false
+      isGridView: true
     }
   },
   computed: {

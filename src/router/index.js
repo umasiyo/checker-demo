@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/Home.vue'
 import LoginPage from '@/views/Login.vue'
 import UploadPage from '@/views/Upload.vue'
+import WorkDetail from '@/views/WorkDetail.vue'
 import { store } from '@/store/store'
 
 // ルートの定義
@@ -25,7 +26,15 @@ const routes = [
   {
     path: '/upload',
     name: 'Upload',
-    component: UploadPage
+    component: UploadPage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/work/:id',
+    name: 'Work',
+    component: WorkDetail,
+    props: true,
+    meta: { requiresAuth: true }
   }
 ]
 
