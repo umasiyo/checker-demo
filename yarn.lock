@@ -2354,6 +2354,7 @@ chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
     axios "^1.7.9"
     checker-demo "file:"
     core-js "^3.8.3"
+    cors "^2.8.5"
     pinia "^2.3.0"
     vue "^3.2.13"
     vue-router "^4.5.0"
