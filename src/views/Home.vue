@@ -243,27 +243,27 @@ export default {
     switchView () {
       this.isGridView = !this.isGridView
     },
-    openLink(url) {
-    if (url) {
-      // window.location.href = url
-      window.open(url, '_blank')
-    } else {
-      alert('リンクが設定されていません。')
-    }
-    },
-    getGoogleDriveFileId(url) {
-    const match = url.match(/\/d\/([^/]+)/);
-    return match ? match[1] : null;
-    },
-    getGoogleDriveThumbnailUrl(fileId) {
-    return `https://drive.google.com/thumbnail?id=${fileId}`;
-    },
-    thumbnailUrl(url) {
-      const fileId = this.getGoogleDriveFileId(url);
-      if (fileId) {
-        return this.getGoogleDriveThumbnailUrl(fileId);
+    openLink (url) {
+      if (url) {
+        // window.location.href = url
+        window.open(url, '_blank')
+      } else {
+        alert('リンクが設定されていません。')
       }
-      return null;
+    },
+    getGoogleDriveFileId (url) {
+      const match = url.match(/\/d\/([^/]+)/)
+      return match ? match[1] : null
+    },
+    getGoogleDriveThumbnailUrl (fileId) {
+      return `https://drive.google.com/thumbnail?id=${fileId}`
+    },
+    thumbnailUrl (url) {
+      const fileId = this.getGoogleDriveFileId(url)
+      if (fileId) {
+        return this.getGoogleDriveThumbnailUrl(fileId)
+      }
+      return null
     }
   }
 }
